@@ -1,0 +1,129 @@
+body{
+    background-color: #F7F7F7;
+    margin: 0;
+}
+
+ul{
+    width: 80%;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px auto;
+}
+
+.formDiv{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+form{
+    width: 80%;
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.title{
+    text-align: center;
+}
+
+.mid{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.dashList{
+    padding: 3px 0 3px 3px;
+    background-color: white;
+}
+
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 5px 0;
+    padding: 5px 5px;
+    background-color: black;
+    color: #FFC815;
+    width: 40%;
+    text-align: center;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+
+.fileContainer:hover{
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 700px){
+    .mid{
+        margin: 20px auto;
+        width: 80%;
+    }
+
+    .formDiv{
+        width: 100%;
+    }
+
+    form{
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    .input{
+        width: 80%;
+    }
+
+    ul{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .mid{
+        grid-template-columns: 30% 1fr;
+        grid-gap: 3%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .input{
+        width: 60%;
+    }
+
+    .fileContainer{
+        width: 30%;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .mid{
+        grid-template-columns: 20% 1fr;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .input{
+        width: 40%;
+    }
+
+    .fileContainer{
+        width: 20%;
+    }
+}
