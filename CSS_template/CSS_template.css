@@ -1,0 +1,159 @@
+@font-face {
+    font-family: Sen-Regular;
+    src: url(fonts/Sen-Regular.ttf);
+}
+
+@font-face {
+    font-family: Sen-Bold;
+    src: url(fonts/Sen-Bold.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    font-family: Sen-Regular;
+}
+
+
+/********** Color **********/
+
+.yellow_text {
+    color: #FFC815;
+}
+
+.yellow_box {
+    background-color: #FFC815;
+}
+
+.white_text {
+    color: white;
+}
+
+.white_box {
+    background-color: white;
+}
+
+.gray_text {
+    color: #707070;
+}
+
+.gray_box {
+    background-color: #707070;
+}
+
+
+/********** Box **********/
+
+.box_text {
+    padding: 30px;
+    width: 60%;
+    margin: auto;
+}
+
+
+/********** Input **********/
+
+.input_button {
+    background-color: #FFC815;
+    border-radius: 5px;
+    border: 0;
+    padding: 9px;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.input_text {
+    width: 228px;
+    margin: 10px 0 20px 0;
+    padding: 0 5px;
+    height: 26px;
+    border: 1px solid #707070;
+    font-family: Sen-Regular;
+    font-size: 13px;
+    outline: none !important;
+}
+
+
+label {
+    margin-top: 10px;
+    font-family: Sen-Bold;
+}
+
+.input_number {
+    width: 26px;
+    height: 26px;
+    margin: 10px 0 20px 0;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #707070;
+    font-family: Sen-Regular;
+    font-size: 13px;
+    outline: none !important;
+
+    -moz-appearance: textfield;
+}
+/*remove arrows from input_number*/
+/* Chrome, Safari, Edge, Opera */
+.input_number::-webkit-outer-spin-button,
+.input_number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+select {
+    width: 240px;
+    height: 30px;
+    margin: 10px 0 20px 0;
+    padding: 5px 35px 5px 5px;
+    border: 1px solid #707070;
+    border-radius: 0;
+    font-family: Sen-Regular;
+    font-size: 13px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(images/arrow.png) 95% / 7% no-repeat white;
+    outline: none !important;
+}
+
+.select:focus,
+.input_text:focus,
+.input_number:focus {
+    box-shadow: 0 0 2px #585858;
+}
+
+
+/********** Other **********/
+
+hr {
+    height: 1px;
+    background-color: #707070;
+    border: 0;
+}
+
+.title {
+    text-align: center;
+    margin: 0;
+    font-size: 3em;
+}
+.title::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 1px;
+    margin: 10px auto 40px auto;
+    background-color: #707070;
+}
+
+.heading {
+    font-family: Sen-Bold;
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+}
+
+.text {
+    font-size: 16px;
+}
