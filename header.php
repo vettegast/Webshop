@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Home</title>
 
-        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="CSS/home.css">
         <link rel="stylesheet" href="CSS_template/CSS_template.css">
         <script src="index.js"></script>
     </head>
