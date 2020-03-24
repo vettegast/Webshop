@@ -10,6 +10,7 @@ body{
     margin: 10px auto;
 }
 
+
 /* Everything for adding a Product */
 .formDiv{
     width: 80%;
@@ -34,6 +35,11 @@ body{
 .dashList{
     padding: 3px 0 3px 3px;
     background-color: white;
+}
+
+.dashList:hover {
+    background-color: #FFC815 !important;
+    cursor: pointer;
 }
 
 .fileContainer {

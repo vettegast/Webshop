@@ -10,27 +10,21 @@ include 'classes/Product.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS/dashboard.css">
     <link rel="stylesheet" href="CSS_template/CSS_template.css">
-    <script type="text/javascript">
-        function showProductDash(){
-            document.getElementsByClassName('formProduct').style.display = 'block';
-            document.getElementsByClassName('formCategory').style.display = 'none';
-            document.getElementsByClassName('formStock').style.display = 'none';
-            document.getElementsByClassName('formOrders').style.display = 'none';
-        }
-        </script>
     <title>Document</title>
+
+    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
 <h1 class="title">Dashboard</h1>
     <div class="mid">
         <ul class="dashUl">
-            <li class="dashList" onclick="showProductDash()">Add a product</li>
-            <li class="dashList">Add a Categorie</li>
-            <li class="dashList">Stock</li>
-            <li class="dashList">Orders</li>
+            <li class="dashList" id="listProduct" onclick="show('product')" style="background-color: #FFC815">Add a product</li>
+            <li class="dashList" id="listCategory" onclick="show('category')">Add a Categorie</li>
+            <li class="dashList" id="listStock" onclick="show('stock')">Stock</li>
+            <li class="dashList" id="listOrders" onclick="show('orders')">Orders</li>
         </ul>
         <div class="formDiv">
-            <form method="post" class="formProduct" enctype="multipart/form-data">
+            <form method="post" class="formProduct" id="formProduct" enctype="multipart/form-data" style="display: flex;">
                 <label>
                     <input type="text" name="name" class="input_text" placeholder="Name">
                 </label>
@@ -66,6 +60,18 @@ include 'classes/Product.php';
                 <label class="button">
                     <input type="submit" class="input_button" name="submit" value="Submit">
                 </label>
+            </form>
+
+            <form method="post" class="formCategory" id="formCategory" style="display: none;">
+                <h1>category</h1>
+            </form>
+
+            <form method="post" class="formStock" id="formStock" style="display: none;">
+                <h1>stock</h1>
+            </form>
+
+            <form method="post" class="formOrders" id="formOrders" style="display: none;">
+                <h1>orders</h1>
             </form>
         </div>
     </div>
