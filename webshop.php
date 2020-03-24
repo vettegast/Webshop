@@ -30,7 +30,7 @@
                 }
                 echo '</p>
                 <div>
-                    <input type="number" class="numberProduct">
+                    <input type="number" class="input_number">
                     <span class="cartButton"></span>
                 </div>
             </div>';
