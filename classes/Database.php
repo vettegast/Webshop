@@ -6,7 +6,7 @@ class Database {
 private $host = 'localhost';
 private $database = 'webshop';
 private $username = 'root';
-private $password = '';
+private $password = 'root';
 
 public $connection;
 
