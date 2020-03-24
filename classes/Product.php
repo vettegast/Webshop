@@ -7,23 +7,21 @@ class Product
     public $conn;
     public $uploadOk = 1;
     public $string = "";
-
-
     public function __construct()
     {
         $database = new Database();
         $this->conn = $database->connect();
     }
 
-    public function addProduct($name, $picture, $description, $price, $productnumber, $stock)
+    public function addProduct($name, $description, $stock, $picture, $category, $price)
     {
-        $sql = $this->conn->prepare("INSERT into products (name, picture, description, price, productnumber, stock) VALUES (:name,:picture,:description,:price,:productnumber,:stock)");
+        $sql = $this->conn->prepare("INSERT into products (name, description, stock, image, category, price) VALUES (:name,:description,:stock,:picture,:category,:price)");
         $sql->bindParam(':name', $name);
-        $sql->bindParam(':picture', $picture);
         $sql->bindParam(':description', $description);
-        $sql->bindParam(':price', $price);
-        $sql->bindParam(':productnumber', $productnumber);
         $sql->bindParam(':stock', $stock);
+        $sql->bindParam(':picture', $picture);
+        $sql->bindParam(':category',$category);
+        $sql->bindParam(':price', $price);
         $sql->execute();
 
         return $sql;
@@ -35,26 +33,26 @@ class Product
         return $statement->fetchAll();
     }
 
-    public function checkProductNumber($productnumber, $check)
-    {
-        $statement = $this->conn->prepare('SELECT * FROM products WHERE productnumber = :productnumber');
-        $statement->bindParam(':productnumber', $productnumber);
-        $statement->execute();
-
-        if ($statement->rowCount() === 1) {
-            $this->uploadOk = 0;
-            $this->string = "This productnumber already exist";
-        } else {
-            if ($check !== false) {
-                $this->uploadOk = 1;
-
-            } else {
-                $this->uploadOk = 0;
-                $this->string = "File is not an image.";
-            }
-        }
-        return $this->string;
-    }
+//    public function checkProductNumber($productnumber, $check)
+//    {
+//        $statement = $this->conn->prepare('SELECT * FROM products WHERE productnumber = :productnumber');
+//        $statement->bindParam(':productnumber', $productnumber);
+//        $statement->execute();
+//
+//        if ($statement->rowCount() === 1) {
+//            $this->uploadOk = 0;
+//            $this->string = "This productnumber already exist";
+//        } else {
+//            if ($check !== false) {
+//                $this->uploadOk = 1;
+//
+//            } else {
+//                $this->uploadOk = 0;
+//                $this->string = "File is not an image.";
+//            }
+//        }
+//        return $this->string;
+//    }
 
 //    Check for Whitespaces in name
 
@@ -94,13 +92,13 @@ class Product
     }
 
     // Check if $uploadOk is set to o or 1, if it is 1 then upload to Database
-    public function checkIfUpload($moveFile, $name, $filename, $description, $price, $productnumber, $stock)
+    public function checkIfUpload($moveFile, $name, $description, $stock, $filename, $category, $price )
     {
         if ($this->uploadOk == 0){
             $this->string = "Sorry, your picture was not uploaded.";
         } else{
             if ($moveFile){
-                $sql = $this->addProduct($name, $filename, $description, $price, $productnumber, $stock);
+                $sql = $this->addProduct($name, $description, $stock, $filename, $category, $price);
                 if ($sql) {
                     $this->string = "The Product has been uploaded successfully.";
                 } else {

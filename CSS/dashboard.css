@@ -3,20 +3,21 @@ body{
     margin: 0;
 }
 
-ul{
+.dashUl{
     width: 80%;
     list-style-type: none;
     padding: 0;
     margin: 10px auto;
 }
 
+/* Everything for adding a Product */
 .formDiv{
     width: 80%;
     margin: auto;
     background-color: white;
 }
 
-form{
+.formProduct{
     width: 80%;
     margin: 20px auto;
 
@@ -24,14 +25,6 @@ form{
     flex-direction: column;
 }
 
-.input{
-    margin-bottom: 5px;
-    width: 100%;
-}
-
-.title{
-    text-align: center;
-}
 
 .mid{
     display: grid;
@@ -47,10 +40,10 @@ form{
     overflow: hidden;
     position: relative;
     margin: 0 0 5px 0;
-    padding: 5px 5px;
+    padding: 5px 0;
     background-color: black;
     color: #FFC815;
-    width: 40%;
+    width: 240px;
     text-align: center;
 }
 
@@ -76,54 +69,29 @@ form{
     .mid{
         margin: 20px auto;
         width: 80%;
+        grid-template-columns: 30% 1fr;
+        grid-gap: 3%;
+    }
+
+    .dashUl{
+        width: 100%;
+        margin: 0 auto;
     }
 
     .formDiv{
         width: 100%;
     }
 
-    form{
+    .formProduct{
         margin: 20px auto;
         width: 90%;
     }
 
-    .input{
-        width: 80%;
-    }
 
-    ul{
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .mid{
-        grid-template-columns: 30% 1fr;
-        grid-gap: 3%;
-    }
-}
-
-@media only screen and (min-width: 900px) {
-    .input{
-        width: 60%;
-    }
-
-    .fileContainer{
-        width: 30%;
-    }
 }
 
 @media only screen and (min-width: 1100px) {
     .mid{
         grid-template-columns: 20% 1fr;
-    }
-}
-
-@media only screen and (min-width: 1400px){
-    .input{
-        width: 40%;
-    }
-
-    .fileContainer{
-        width: 20%;
     }
 }

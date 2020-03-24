@@ -9,44 +9,50 @@ include 'classes/Product.php';
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS_template/CSS_template.css">
+    <script type="text/javascript">
+        function showProductDash(){
+            document.getElementsByClassName('formProduct').style.display = 'block';
+            document.getElementsByClassName('formCategory').style.display = 'none';
+            document.getElementsByClassName('formStock').style.display = 'none';
+            document.getElementsByClassName('formOrders').style.display = 'none';
+        }
+        </script>
     <title>Document</title>
 </head>
 <body>
 <h1 class="title">Dashboard</h1>
-<hr>
     <div class="mid">
-        <ul>
-            <li class="dashList">Add a product</li>
+        <ul class="dashUl">
+            <li class="dashList" onclick="showProductDash()">Add a product</li>
             <li class="dashList">Add a Categorie</li>
             <li class="dashList">Stock</li>
             <li class="dashList">Orders</li>
         </ul>
         <div class="formDiv">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" class="formProduct" enctype="multipart/form-data">
                 <label>
-                    <input type="text" name="name" class="nameInput input" placeholder="Name">
+                    <input type="text" name="name" class="input_text" placeholder="Name">
                 </label>
                 <label class="fileContainer">
                     Choose a picture!
-                    <input type="file" oninput="" name="fileToUpload" class="input" id="fileToUpload">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
                 </label>
                 <label>
-                    <input type="text" name="description" class="desInput input" placeholder="Description">
-                </label>
-                <label>
-
-                    <input type="number" name="price" class="input" placeholder="Price">
+                <textarea cols="30" rows="10" name="description" class="input_text" placeholder="Description"></textarea>
                 </label>
                 <label>
 
-                    <input type="number" name="productnumber" class="input" placeholder="Product number">
+                    <input type="number" name="price" class="input_text" placeholder="Price">
                 </label>
                 <label>
-
-                    <input type="number" name="stock" class="input" placeholder="Stock">
+                    <input type="number" name="productnumber" class="input_text" placeholder="Product number">
                 </label>
                 <label>
-                    <select name="categorie" class="input">
+                    <input type="number" name="stock" class="input_text" placeholder="Stock">
+                </label>
+                <label>
+                    <select name="categorie">
                         <option value="">Categorie</option>
                         <?php
                         $categorie = ['Food', 'Clothes', 'Cars'];
@@ -58,7 +64,7 @@ include 'classes/Product.php';
                     </select>
                 </label>
                 <label class="button">
-                    <input type="submit" name="submit" value="Submit">
+                    <input type="submit" class="input_button" name="submit" value="Submit">
                 </label>
             </form>
         </div>
@@ -78,7 +84,7 @@ if(isset($_POST["submit"])) {
     echo $fileName;
 
     $product = new Product();
-    echo $product->checkProductNumber($_POST['productnumber'], $check) . "<br>";
+//    echo $product->checkProductNumber($_POST['productnumber'], $check) . "<br>";
     echo $product->checkWhitespaces($fileName) . "<br>";
     echo $product->checkIfFileExists($target_file) . "<br>";
     echo $product->checkFileFormat($imageFileType) . "<br>";
