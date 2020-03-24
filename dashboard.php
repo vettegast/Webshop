@@ -32,27 +32,24 @@ include 'classes/Product.php';
         <div class="formDiv">
             <form method="post" class="formProduct" enctype="multipart/form-data">
                 <label>
-                    <input type="text" name="name" class="input_text" placeholder="Name">
+                    <input type="text" required name="name" class="input_text" placeholder="Name">
                 </label>
                 <label class="fileContainer">
                     Choose a picture!
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="file" required name="fileToUpload" id="fileToUpload">
                 </label>
                 <label>
-                <textarea cols="30" rows="10" name="description" class="input_text" placeholder="Description"></textarea>
+                <textarea name="description" required class="input_text" placeholder="Description" cols="30" rows="10"></textarea>
                 </label>
                 <label>
 
-                    <input type="number" name="price" class="input_text" placeholder="Price">
+                    <input type="number" required name="price" class="input_text" placeholder="Price">
                 </label>
                 <label>
-                    <input type="number" name="productnumber" class="input_text" placeholder="Product number">
+                    <input type="number" required name="stock" class="input_text" placeholder="Stock">
                 </label>
                 <label>
-                    <input type="number" name="stock" class="input_text" placeholder="Stock">
-                </label>
-                <label>
-                    <select name="categorie">
+                    <select name="category" required>
                         <option value="">Categorie</option>
                         <?php
                         $categorie = ['Food', 'Clothes', 'Cars'];
@@ -88,5 +85,5 @@ if(isset($_POST["submit"])) {
     echo $product->checkWhitespaces($fileName) . "<br>";
     echo $product->checkIfFileExists($target_file) . "<br>";
     echo $product->checkFileFormat($imageFileType) . "<br>";
-    echo $product->checkIfUpload(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file), $_POST['name'], $fileName, $_POST['description'], $_POST['price'], $_POST['productnumber'], $_POST['stock']) . "<br>";
+    echo $product->checkIfUpload(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file), $_POST['name'], $_POST['description'], $_POST['stock'], $fileName, $_POST['category'], $_POST['price']) . "<br>";
 }
