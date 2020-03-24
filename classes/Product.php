@@ -13,6 +13,7 @@ class Product
         $this->conn = $database->connect();
     }
 
+//    Add products to product table in database
     public function addProduct($name, $description, $stock, $picture, $category, $price)
     {
         $sql = $this->conn->prepare("INSERT into products (name, description, stock, image, category, price) VALUES (:name,:description,:stock,:picture,:category,:price)");
@@ -27,9 +28,12 @@ class Product
         return $sql;
     }
 
-    public function showProduct()
+//    Fetches all products form a specific category
+    public function showProduct($category)
     {
-        $statement = $this->conn->query('SELECT * FROM products');
+        $statement = $this->conn->prepare('SELECT * FROM products WHERE category = :category');
+        $statement->bindParam(":category", $category);
+        $statement->execute();
         return $statement->fetchAll();
     }
 
@@ -55,7 +59,6 @@ class Product
 //    }
 
 //    Check for Whitespaces in name
-
     public function checkWhitespaces($name){
         if (preg_match('/\s/', $name)){
             $this->uploadOk = 0;
@@ -92,7 +95,7 @@ class Product
     }
 
     // Check if $uploadOk is set to o or 1, if it is 1 then upload to Database
-    public function checkIfUpload($moveFile, $name, $description, $stock, $filename, $category, $price )
+    public function checkIfUpload($moveFile, $name, $description, $stock, $filename, $category, $price)
     {
         if ($this->uploadOk == 0){
             $this->string = "Sorry, your picture was not uploaded.";

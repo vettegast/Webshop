@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Webshop</title>
     <link rel="stylesheet" href="CSS/webshop.css">
+    <link rel="stylesheet" href="CSS_template/CSS_template.css">
 </head>
 <body>
     <div class="mid">
@@ -16,22 +17,22 @@
 
         $item = new Product();
 
-        foreach ($item->showProduct() as $item) {
+        foreach ($item->showProduct("zeep") as $item) {
             echo '<div class="product">
-                <h1>' . $item['name'] . '</h1>
+                <h1 class="titleProduct">' . ucfirst(strtolower($item['name'])) . '</h1>
                 <div class="img" style="background-image: url(uploads/' . $item['image'] . ')"></div>
-                <p>' . $item['description'] . '</p> <br>
-                <p>' . $item['price'] . '</p>
-                <p>';
+                <p class="desc">' . $item['description'] . '</p> <br>
+                <p class="price">€' . $item['price'] . '</p>
+                <p class="stock" ';
                 if ($item['stock'] > 0){
-                    echo "Still in stock";
+                    echo "style=\"color:black\">Still in stock";
                 } else{
-                    echo "Out of stock";
+                    echo "style=\"color:red\">Out of stock";
                 }
                 echo '</p>
-                <div>
-                    <input type="number" class="input_number">
-                    <span class="cartButton"></span>
+                <div class="lastDiv">
+                    <input type="number" class="input_number totalProducts" value="1">
+                    <div class="cartButton"><img src="images/shopping-bag.png" class="cartImages" alt="Shopping-bag"></div>
                 </div>
             </div>';
         }

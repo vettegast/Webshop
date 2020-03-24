@@ -15,6 +15,27 @@ body {
     font-family: Sen-Regular;
 }
 
+/* Scroll bar */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #FFC815;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #d6a811;
+}
+
 
 /********** Color **********/
 
@@ -64,6 +85,10 @@ body {
     font-weight: bold;
 }
 
+.input_button:hover{
+    cursor: pointer;
+}
+
 .input_text {
     width: 228px;
     margin: 10px 0 20px 0;
@@ -74,9 +99,6 @@ body {
     font-size: 13px;
     outline: none !important;
 }
-
-
-
 
 label {
     margin-top: 10px;
@@ -118,6 +140,10 @@ select {
     appearance: none;
     background: url(images/arrow.png) 95% / 7% no-repeat white;
     outline: none !important;
+}
+
+select:hover{
+    cursor: pointer!important;
 }
 
 .select:focus,
