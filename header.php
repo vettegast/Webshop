@@ -28,7 +28,7 @@
                 <p class="yellow_text" style="margin: 0">Username</p>
             </div>
             <img src="images/user.png" alt="#" class="icon">
-            <a href="" class="icon" style="padding: 0">
+            <a href="shoppingcart.php" class="icon" style="padding: 0">
                 <img src="images/supermarket.png" alt="#" class="icon">
             </a>
         </div>
