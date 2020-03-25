@@ -28,7 +28,7 @@ header {
 /********** Parallax style **********/
 
 #parallax {
-    height: 100vh;
+    height: calc(100vh - 50px);
     z-index: 1;
 
     background-image: url("../images/bg_img.jpg");
@@ -38,7 +38,7 @@ header {
 }
 
 #bg_img_cover {
-    height: 100vh;
+    height: calc(100vh - 50px);
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 0;
     position: relative;

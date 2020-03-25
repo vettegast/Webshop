@@ -1,4 +1,5 @@
 <?php
+include "header.php";
 include 'classes/Product.php';
 ?>
 <!doctype html>
@@ -12,7 +13,7 @@ include 'classes/Product.php';
     <link rel="stylesheet" href="CSS_template/CSS_template.css">
     <title>Document</title>
 
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="javascript/index.js"></script>
 </head>
 <body>
 <h1 class="title">Dashboard</h1>

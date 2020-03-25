@@ -1,3 +1,6 @@
+<?php
+@include "header.php";
+?>
 
 <!doctype html>
 <html lang="en">
@@ -11,6 +14,8 @@
     <link rel="stylesheet" href="CSS_template/CSS_template.css">
 </head>
 <body>
+
+
     <div class="mid">
         <?php
         include 'classes/Product.php';
