@@ -1,0 +1,96 @@
+/* Scroll bar */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #FFC815;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #d6a811;
+}
+
+/********** Box **********/
+
+.box_text {
+    padding: 30px;
+    width: 60%;
+    margin: auto;
+}
+
+
+/********** Input **********/
+
+.input_signup {
+    background-color: #FFC815;
+    border-radius: 5px;
+    border: 0;
+    padding: 9px;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+.input_login {
+    background-color: #FFC815;
+    border-radius: 5px;
+    border: 0;
+    padding: 9px;
+    margin-top: 3%;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+.input_login:hover{
+    cursor: pointer;
+}
+
+.input_signup:hover{
+    cursor: pointer;
+}
+
+.input_email {
+    width: 300px;
+    padding: 0 5px;
+    height: 30px;
+    border: 1px solid #707070;
+    font-family: Sen-Regular;
+    font-size: 13px;
+    outline: none !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+
+}
+
+.input_password {
+    width: 300px;
+    padding: 0 5px;
+    height: 30px;
+    border: 1px solid #707070;
+    font-family: Sen-Regular;
+    font-size: 13px;
+    outline: none !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
