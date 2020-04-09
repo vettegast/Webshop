@@ -14,23 +14,37 @@ if (isset($_POST['submit']))
 function login()
 {
 
+        // execute login function to connect to database, search for the entered email and store results in the database variable
+
     $users = new login();
     $Database = $users->index();
+
+        // get correct hashed password from the database array and store it in a variable
 
     if (!empty($Database[0]))
     {
         $password = $Database[0]["password"];
     }
 
+        // check password against email if the entered email exists in the database
+
     if (!empty($Database) && password_verify($_POST['password-input'], $password))
     {
-        echo "yes";
+        // make an array with user info and redirect if email and password match
+
+        $_SESSION['verification'] = array($_POST['email-input'], $Database[0]["role"], $Database[0]["name"]);
+        header("Location: index.php");
     }
     else
     {
+        // display message if email and/or password is incorrect
+
         echo "email and/or password is incorrect!";
     }
 
+
+
+    // empty the database array and login info variables
 
     $Database = array();
 
