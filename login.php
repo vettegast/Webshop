@@ -18,6 +18,7 @@ function login()
 
     $users = new login();
     $Database = $users->index();
+    $_SESSION['error'] = "";
 
         // get correct hashed password from the database array and store it in a variable
 
@@ -39,7 +40,7 @@ function login()
     {
         // display message if email and/or password is incorrect
 
-        echo "email and/or password is incorrect!";
+        $_SESSION['error'] = "email and/or password is incorrect!";
     }
 
 
@@ -79,6 +80,16 @@ function login()
         <input type="button" value="Signup" class="input_signup" />
     </a>
 </form>
+
+<div id="error" class="error">
+    <?php
+
+    if (!empty($_SESSION['error'])) {
+        echo $_SESSION['error'];
+        $_SESSION['error'] = "";
+    }
+
+    ?>
 
 </body>
 
