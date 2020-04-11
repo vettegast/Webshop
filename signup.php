@@ -1,5 +1,6 @@
 <?php
 include 'classes/login.php';
+include 'header.php';
 
 session_start();
 
@@ -8,11 +9,13 @@ if (isset($_POST['submit'])) {
     signup();
 }
 
+
 function signup()
 {
 
     // execute login function and get all users from database
 
+    $_SESSION['error'] = "";
     $users = new login();
     $Database = $users->index();
 
@@ -21,7 +24,7 @@ function signup()
 
 
         if (!empty($Database[0])) {
-            echo "This email address is already in use";
+            $_SESSION['error'] = "This email address is already in use";
         } else {
 
             // store email, password and the hashed password in variables
@@ -43,7 +46,7 @@ function signup()
         }
     }
     else {
-        echo "Please enter your email address and password";
+        $_SESSION['error'] = "Please enter your email address and password";
     }
 
 
@@ -67,10 +70,21 @@ function signup()
 <body>
 
 <form method="post">
-    <input type="email" placeholder="E-mail address..." class="email" name="email-input">
-    <input type="password" placeholder="Password..." class="password" name="password-input">
-    <input type="submit" name="submit" class="submit-signup" value="Signup">
+    <input type="email" placeholder="E-mail address..." class="input_email" name="email-input">
+    <input type="password" placeholder="Password..." class="input_password" name="password-input">
+    <input type="submit" name="submit" class="input_login" value="Signup">
 </form>
+
+<div id="error" class="error">
+    <?php
+
+    if (!empty($_SESSION['error'])) {
+        echo $_SESSION['error'];
+        $_SESSION['error'] = "";
+    }
+
+    ?>
+</div>
 
 </body>
 
