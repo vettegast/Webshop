@@ -31,11 +31,11 @@ function signup()
 
             $email = $_POST['email-input'];
             $password = $_POST['password-input'];
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 
             // create a new users in the database with the variables
 
-            $Database = $users->create($email, $hashed_password, 0);
+            $Database = $users->create($email, $password, 0);
 
             //empty the email, password and database
 

@@ -37,13 +37,12 @@ class login {
      */
     public function create($email, $password, $role)
     {
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $statement = $this->connection->prepare('INSERT INTO users (email, password, role) VALUES (:email, :password, :role)');
         $statement->bindParam(':email', $email);
-        $statement->bindParam(':password', $password);
+        $statement->bindParam(':password', $hashed_password);
         $statement->bindParam(':role', $role);
         $statement->execute();
-
-        return $this->connection->lastInsertId();
     }
 
 }
